@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surgical Skills Video Submission</title>
+    <link rel="stylesheet" href="src.css">
+</head>
+
+<!-- Exercise Modal -->
+<div class="modal-overlay" id="exerciseModal">
+    <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <h2 class="exercise-title" id="modalTitle"></h2>
+        <img class="exercise-image" id="modalImage" src="" alt="Exercise Demonstration">
+        <ol class="instructions-list" id="modalInstructions"></ol>
+    </div>
+</div>
+<!-- Progress Ribbon -->
+<div class="progress-ribbon" id="progressRibbon"></div>
+
+
+
+<body>
+    <div class="form-container">
+        <h1>✂️ Surgical Skills Video Submission</h1>
+        <form id="submissionForm">
+            <!-- Personal Information Section -->
+            <fieldset class="form-section">
+                <legend><span class="icon">👤</span> Personal Information</legend>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="skillLevel">Skill Level</label>
+                    <select id="skillLevel" required>
+                        <option value="">Select Level</option>
+                        <option value="novice">Novice</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <!-- Video Details Section -->
+            <fieldset class="form-section">
+                <legend><span class="icon">🎥</span> Video Details</legend>
+                <div class="columns">
+                    <div class="form-group">
+                        <label for="cameraAngle">Camera Angle</label>
+                        <select id="cameraAngle" required>
+                            <option value="">Select Angle</option>
+                            <option value="overhead">Overhead</option>
+                            <option value="45-degree">45-degree</option>
+                            <option value="side">Side View</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="distance">Recording Distance</label>
+                        <select id="distance" required>
+                            <option value="">Select Distance</option>
+                            <option value="30cm">30cm</option>
+                            <option value="50cm">50cm</option>
+                            <option value="75cm">75cm</option>
+                            <option value="100cm">100cm</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Exercise Selection -->
+            <fieldset class="form-section">
+                <legend><span class="icon">🏋️</span> Exercise Coverage</legend>
+                <div class="custom-dropdown">
+                    <div class="dropdown-header">Select Exercises (Multiple allowed)</div>
+                    <div class="dropdown-content">
+                        <label><input type="checkbox" name="exercise" value="binary-stars"> Binary Stars</label>
+                        <label><input type="checkbox" name="exercise" value="synchronized-strengthening"> Synchronized Intrinsic Strengthening</label>
+                        <label><input type="checkbox" name="exercise" value="Intrinsic Strengthening and Movement"> Intrinsic Strengthening and Movement</label>
+                        <label><input type="checkbox" name="exercise" value="Follow the Leader"> Follow the Leader
+                        </label>
+                        <label><input type="checkbox" name="exercise" value="box-tracing"> Box Tracing</label>
+                        <label><input type="checkbox" name="exercise" value="Rotating Suture"> Rotating Suture</label>
+                        <label><input type="checkbox" name="exercise" value="Passing Suture"> Passing Suture</label>
+                        <label><input type="checkbox" name="exercise" value="Running Suture"> Running Suture</label>
+                        <label><input type="checkbox" name="exercise" value="Cutting Suture"> Cutting Suture</label>
+                        <label><input type="checkbox" name="exercise" value="Load the Needle"> Load the Needle</label>
+                        <label><input type="checkbox" name="exercise" value="Circle Cut"> Circle Cut</label>
+                        
+
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- File Upload Section -->
+            <fieldset class="form-section">
+                <legend><span class="icon">📁</span> Video Upload</legend>
+                <div class="drag-drop-area" id="dropZone">
+                    <span class="drag-text">Drag & Drop Videos Here</span>
+                    <span class="drag-text">or</span>
+                    <button type="button" class="browse-btn">Browse Files</button>
+                    <input type="file" id="fileInput" multiple accept="video/*" hidden>
+                </div>
+                <div id="fileList"></div>
+            </fieldset>
+
+            <!-- Quality Checklist -->
+            <fieldset class="form-section">
+                <legend><span class="icon">✅</span> Quality Checklist</legend>
+                <div class="checklist">
+                    <label><input type="checkbox" class="quality-check"> 1080p Resolution</label>
+                    <label><input type="checkbox" class="quality-check"> Stable Camera</label>
+                    <label><input type="checkbox" class="quality-check"> Proper Background</label>
+                    <label><input type="checkbox" class="quality-check"> Good Lighting</label>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                    <span id="progressText">0% Complete</span>
+                </div>
+            </fieldset>
+
+            <button type="submit" class="submit-btn">Submit Video</button>
+        </form>
+    </div>
+
+    <script src="src.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,270 @@
+:root {
+    --primary-color: #2a2a72;
+    --secondary-color: #009ffd;
+    --accent-color: #ff3c00;
+    --background-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+body {
+    font-family: 'Segoe UI', system-ui;
+    margin: 0;
+    padding: 2rem;
+    background: var(--background-gradient);
+    min-height: 100vh;
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.form-section {
+    border: 2px solid #eee;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+legend {
+    font-weight: 600;
+    color: var(--secondary-color);
+    padding: 0 10px;
+}
+
+.icon {
+    margin-right: 8px;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #444;
+    font-weight: 500;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(0, 159, 253, 0.1);
+}
+
+.columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.custom-dropdown {
+    position: relative;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    padding: 0.8rem;
+    cursor: pointer;
+}
+
+.dropdown-header {
+    color: #666;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    width: 100%;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 1;
+    padding: 1rem;
+    border-radius: 6px;
+    left: 0;
+    margin-top: 0.5rem;
+}
+
+.dropdown-content label {
+    display: block;
+    padding: 0.5rem;
+    transition: background 0.3s ease;
+}
+
+.dropdown-content label:hover {
+    background: #f8f9fa;
+}
+
+.drag-drop-area {
+    border: 2px dashed #ddd;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.drag-drop-area.dragover {
+    border-color: var(--secondary-color);
+    background: rgba(0, 159, 253, 0.05);
+}
+
+.drag-text {
+    display: block;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.browse-btn {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.browse-btn:hover {
+    transform: translateY(-2px);
+}
+
+.checklist {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.progress-container {
+    background: #f0f0f0;
+    border-radius: 6px;
+    height: 20px;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--secondary-color);
+    border-radius: 6px;
+    transition: width 0.5s ease;
+    width: 0%;
+}
+
+#progressText {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 0.9rem;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .columns {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.modal-visible .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+.exercise-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.instructions-list {
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+}
+
+.instructions-list li {
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+}
+
+.exercise-title {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
